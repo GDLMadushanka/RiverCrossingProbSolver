@@ -14,6 +14,7 @@ goalReached = False
 restricktedRiverbank = []
 restricktedBoat = []
 
+# status registers for riverbanks
 bank1Status = []
 bank2Status = []
 
@@ -28,7 +29,6 @@ def validateRiverbank(arr):
         if sorted(i) == sorted(arr):
             return False
     return True
-
 
 # validate the combination on boat
 def validateBoat(arr):
@@ -103,13 +103,11 @@ def addNodeIfNotExist(arrBank1, arrBank2, l):
 
 roles = raw_input("Input characters separated by space : ")
 rolesArr = set(roles.split())
-# rolesArr =set(['F','W','G','C'])
+# riverbank 1 have all characters initially
 bank1Status = rolesArr
 driver = raw_input("Input characters who can drive the boat : ")
 driverArr = set(driver.split())
-# driverArr = set(['F'])
 boatCapacity = int(raw_input("Input the boat capacity : "))
-
 nonDriverArr = rolesArr - driverArr
 
 if (not driverArr <= rolesArr):
@@ -119,7 +117,6 @@ else:
     print("Initial state : " + str(map(str, rolesArr)))
 
 restricktedBank = raw_input("Input restricted combinations on riverbanks : ")
-# restricktedBank ="W,G W,G,C"
 pairList = restricktedBank.split()
 for i in pairList:
     arr = []
@@ -129,7 +126,6 @@ for i in pairList:
     restricktedRiverbank.append(arr)
 
 restrickted_Boat = raw_input("Input restricted combinations on boat : ")
-# restrickted_Boat = ''
 pairList2 = restrickted_Boat.split()
 for i in pairList2:
     arr = []
